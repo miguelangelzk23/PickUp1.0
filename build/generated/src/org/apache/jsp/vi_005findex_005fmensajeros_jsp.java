@@ -3,8 +3,11 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import modelo.Mod_mensajeros;
+import modelo.Mod_mensajeros_get_set;
+import java.util.ArrayList;
 
-public final class vi_005fadministrador_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class vi_005findex_005fmensajeros_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -43,15 +46,18 @@ public final class vi_005fadministrador_jsp extends org.apache.jasper.runtime.Ht
 
       out.write("\n");
       out.write("\n");
+      out.write("    \n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">\n");
+      out.write("         <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">\n");
       out.write("         <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css\">  \n");
       out.write("        <link rel=\"stylesheet\" href=\"css/style.css\">\n");
-      out.write("        <title>Administrador pick up</title>\n");
+      out.write("        <title>index mensajero</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <nav class=\"navbar navbar-expand-lg navbar-light \" id=\"nav_user\">\n");
@@ -89,16 +95,78 @@ public final class vi_005fadministrador_jsp extends org.apache.jasper.runtime.Ht
       out.write("        \n");
       out.write("        <hr>\n");
       out.write("        \n");
-      out.write("        <a href=\"vi_index_mensajeros.jsp\"> <button>Mensajeros</button> </a>\n");
-      out.write("        <a> <button>Restaurantes</button> </a>\n");
-      out.write("        <a> <button>Usuarios</button> </a>\n");
       out.write("        \n");
+      out.write("        <a href=\"\"> <button>Registrar mensajero</button> </a>\n");
+      out.write("        <form action=\"\" >\n");
+      out.write("            <button type=\"submit\" name=\"consultar_mensajero\">Consultar mensajero</button>\n");
+      out.write("        </form>\n");
       out.write("        \n");
+      out.write("        <table class=\"table\" id=\"tabla_mensajero\">\n");
+      out.write("            <thead>\n");
+      out.write("                <tr>\n");
+      out.write("                    <th>Datos mensajeros</th>\n");
+      out.write("                </tr>\n");
+      out.write("            </thead>\n");
+      out.write("            <tr>\n");
+      out.write("                <th>Id</th>\n");
+      out.write("                <th>Cedula</th>\n");
+      out.write("                <th>Nombre</th>\n");
+      out.write("                <th>direccion</th>\n");
+      out.write("                <th>Barrio</th>\n");
+      out.write("                <th>Descripcion</th>\n");
+      out.write("                <th>Telefono</th>\n");
+      out.write("                <th>Email</th>\n");
+      out.write("            </tr>\n");
+      out.write("            \n");
+      out.write("            ");
+
+                ArrayList<Mod_mensajeros_get_set> listaMensajeros = new ArrayList<>();
+                Mod_mensajeros_get_set datos_mensajeros = new Mod_mensajeros_get_set();
+                Mod_mensajeros consulta_mensajero = new Mod_mensajeros();
+                listaMensajeros=consulta_mensajero.consultarMensajero();
+                
+                for(int j= 0; j < listaMensajeros.size();j++)
+                {
+                    datos_mensajeros = listaMensajeros.get(j);
+                
+      out.write("\n");
+      out.write("                \n");
+      out.write("                <tr>\n");
+      out.write("                    <td>");
+      out.print(datos_mensajeros.getMen_id());
+      out.write("</td>\n");
+      out.write("                    <td>");
+      out.print(datos_mensajeros.getMen_cedula());
+      out.write("</td>\n");
+      out.write("                    <td>");
+      out.print(datos_mensajeros.getMen_nombre());
+      out.write("</td>\n");
+      out.write("                    <td>");
+      out.print(datos_mensajeros.getMen_direccion());
+      out.write("</td>\n");
+      out.write("                    <td>");
+      out.print(datos_mensajeros.getMen_barrio());
+      out.write("</td>\n");
+      out.write("                    <td>");
+      out.print(datos_mensajeros.getMen_descripcion());
+      out.write("</td>\n");
+      out.write("                    <td>");
+      out.print(datos_mensajeros.getMen_telefono());
+      out.write("</td>\n");
+      out.write("                    <td>");
+      out.print(datos_mensajeros.getMen_email());
+      out.write("</td>\n");
+      out.write("                </tr>\n");
+      out.write("                \n");
+      out.write("                ");
+
+                }
+                
+      out.write("\n");
+      out.write("        </table>\n");
+      out.write("         \n");
+      out.write("       \n");
       out.write("        \n");
-      out.write("        \n");
-      out.write("        <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>\n");
-      out.write("<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>\n");
-      out.write("<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

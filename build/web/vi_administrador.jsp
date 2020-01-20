@@ -49,11 +49,69 @@
 </nav>
         
         <hr>
-        
-        <a href="vi_index_mensajeros.jsp"> <button>Mensajeros</button> </a>
+        <div class="container">
+         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nuevoUsuario">
+         + Nuevo 
+         </button>
+        <a href="mensajero/vi_index_mensajeros.jsp"> <button>Mensajeros</button> </a>
         <a> <button>Restaurantes</button> </a>
         <a> <button>Usuarios</button> </a>
+        </div>
         
+      
+
+<!-- Modal -->
+<div class="modal fade" id="nuevoUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registro nuevo Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                     <label for="">Nombre de Usuario</label>
+                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" ej: miguelzk23">
+                     </div>
+                    
+                    <div class="form-group">
+                     <label for="">Contraseña</label>
+                     <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="******">
+                     </div>
+                    
+                    <div class="form-group">
+                     <label for="exampleInputEmail1">Confirmar contraseña</label>
+                     <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="******">
+                     </div>
+                    
+                    <div class="form-group">
+                     <label for="exampleInputEmail1">Rol</label>
+                   <select id="inputState" class="form-control">
+                     <option selected>Mensajero</option>
+                     <option>Proveedor</option>
+                     <option>Administrador</option>
+                    </select>
+                     </div>
+                    
+                     <div class="form-group">
+                     <label for="exampleInputPassword1">Foto</label>
+                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="foto">
+                    </div>
+                    
+                    
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
         
         
         

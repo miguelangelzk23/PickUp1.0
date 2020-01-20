@@ -4,7 +4,7 @@
     Author     : usuario
 --%>
 
-<%@page import="modelo.Mod_mensajeros"%>
+<%@page import="modelo.Mod_mensajeros"%>    
 <%@page import="modelo.Mod_mensajeros_get_set"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,7 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">  
-        <link rel="stylesheet" href="css/style.css">
+         <link rel="stylesheet" href="../css/style.css">
         <title>index mensajero</title>
     </head>
     <body>
@@ -53,16 +53,15 @@
         
         <hr>
         
-        
-        <a href=""> <button>Registrar mensajero</button> </a>
-        <form action="" >
-            <button type="submit" name="consultar_mensajero">Consultar mensajero</button>
-        </form>
+        <div class="container" >
+            <a href="insert_mensajero.jsp"> <button>Registrar mensajero</button> </a>
         
         <table class="table" id="tabla_mensajero">
+            
+
             <thead>
                 <tr>
-                    <th>Datos mensajeros</th>
+                    <th colspan="8">Datos mensajeros</th>
                 </tr>
             </thead>
             <tr>
@@ -103,7 +102,8 @@
                 %>
         </table>
          
-       
+        </div>
+
         
     </body>
 </html>
