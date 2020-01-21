@@ -3,6 +3,7 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +22,7 @@ import modelo.Mod_usuarios_get_set;
 public class con_usuarios extends HttpServlet {
     
     private String usu_nombre;
+    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -76,9 +78,12 @@ public class con_usuarios extends HttpServlet {
      protected void insertar_Usuario(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        String usu_nom;
         
         boolean dat;
-        String usu_password,usu_rol,usu_estado,usu_foto,usu,usu_confirma;
+       
+         
+        String usu_password,usu_rol,usu_estado,usu_foto,usu_confirma;
         
         usu_nombre = request.getParameter("usu_nombre");
         usu_password = request.getParameter("usu_password");
@@ -94,9 +99,12 @@ public class con_usuarios extends HttpServlet {
          {
              if(usu_rol.equals("Mensajero"))
              {
+                 
                  JOptionPane.showMessageDialog(null, "enviando datos");
+                
                  HttpSession nom_usuario = request.getSession(true);
                  nom_usuario.setAttribute("nom_user", usu_nombre);
+                 
                  response.sendRedirect("mensajero/insert_mensajero.jsp");
              }
              else if (usu_rol.equals("administrador"))

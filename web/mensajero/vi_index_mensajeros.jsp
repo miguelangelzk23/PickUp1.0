@@ -54,7 +54,7 @@
         <hr>
         
         <div class="container" >
-            <a href="insert_mensajero.jsp"> <button>Registrar mensajero</button> </a>
+           
         
         <table class="table" id="tabla_mensajero">
             
@@ -73,6 +73,7 @@
                 <th>Descripcion</th>
                 <th>Telefono</th>
                 <th>Email</th>
+                
             </tr>
             
             <%
@@ -95,6 +96,7 @@
                     <td><%=datos_mensajeros.getMen_descripcion()%></td>
                     <td><%=datos_mensajeros.getMen_telefono()%></td>
                     <td><%=datos_mensajeros.getMen_email()%></td>
+                    
                 </tr>
                 
                 <%

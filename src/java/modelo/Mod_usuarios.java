@@ -5,6 +5,7 @@ import conexion.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
@@ -14,6 +15,25 @@ public class Mod_usuarios {
     Connection cnn = conectar_bd.conexiondb();
     ResultSet rs = null;
     PreparedStatement ps = null;
+    
+public ArrayList<Mod_usuarios_get_set> consultarUnUsuario (String nom_usuario)
+{
+    ArrayList<Mod_usuarios_get_set> lista = new ArrayList<>();
+    try {
+        ps = cnn.prepareStatement("select usu_id,usu_nombre from tb_usuario where usu_nombre = '"+nom_usuario+"'");
+        rs = ps.executeQuery();
+        while(rs.next())
+        {
+            Mod_usuarios_get_set consuta_un_usuario = new Mod_usuarios_get_set(rs.getInt(1),rs.getString(2));
+            lista.add(consuta_un_usuario);
+        }
+    } catch (Exception e) {
+        
+        JOptionPane.showMessageDialog(null, "error al consultar un mensajero "+ e);
+    }
+    
+    return lista;
+}
     
 public boolean insertarUusario (Mod_usuarios_get_set usugs)
 {

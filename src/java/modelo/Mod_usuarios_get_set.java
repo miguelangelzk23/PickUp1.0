@@ -4,7 +4,7 @@ package modelo;
 
 public class Mod_usuarios_get_set {
     
-
+    private int usu_id;
     private String usu_nombre;
     private String usu_password;
     private String usu_rol;
@@ -20,6 +20,11 @@ public class Mod_usuarios_get_set {
         this.usu_rol = usu_rol;
         this.usu_estado = usu_estado;
         this.usu_foto = usu_foto;
+    }
+
+    public Mod_usuarios_get_set(int usu_id, String usu_nombre) {
+        this.usu_id = usu_id;
+        this.usu_nombre = usu_nombre;
     }
 
     public String getUsu_nombre() {
@@ -63,5 +68,14 @@ public class Mod_usuarios_get_set {
     }
 
     
+    
+    public int getUsu_id() {
+        return usu_id;
+    }
+
+    public void setUsu_id(int usu_id) {
+        this.usu_id = usu_id;
+    }
+
     
 }

@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
+import modelo.Mod_mensajeros;
+import modelo.Mod_mensajeros_get_set;
 
 /**
  *
@@ -58,6 +61,44 @@ public class con_mensajeros extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        if(request.getParameter("registrar_mensajero") != null)
+        {
+            insertarMensajero(request, response);
+        }
+        
+    }
+    
+     protected void insertarMensajero(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+        
+        String men_cedula,men_nombre,men_direccion,men_barrio,men_descripcion,men_telefono,men_email,men_usu_id;
+        boolean dat;
+        men_cedula = request.getParameter("men_cedula");
+        men_nombre = request.getParameter("men_nombre");
+        men_direccion = request.getParameter("men_direccion");
+        men_barrio = request.getParameter("men_barrio");
+        men_descripcion = request.getParameter("men_descripcion");
+        men_telefono = request.getParameter("men_celular");
+        men_email = request.getParameter("men_email");
+        men_usu_id = request.getParameter("men_usu_id");
+        
+         Mod_mensajeros_get_set datos_mensajeros = new Mod_mensajeros_get_set(men_cedula, men_nombre, men_direccion, men_barrio, men_descripcion, men_telefono, men_email, men_usu_id);
+         Mod_mensajeros inserta = new Mod_mensajeros();
+         dat = inserta.insertarMensajero(datos_mensajeros);
+         
+         if(dat)
+         {
+             JOptionPane.showMessageDialog(null, "datos registrados");
+             response.sendRedirect("mensajero/vi_index_mensajeros.jsp");
+         }
+         else
+         {
+             JOptionPane.showMessageDialog(null, "datos de mensajero no registrados");
+             response.sendRedirect("vi_administrador.jsp");
+         }
+        
         
     }
 

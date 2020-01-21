@@ -12,6 +12,7 @@ public class Mod_mensajeros_get_set {
     private String men_descripcion;
     private String men_telefono;
     private String men_email;
+    private String men_usu_id;
 
     public Mod_mensajeros_get_set() {
     }
@@ -26,6 +27,28 @@ public class Mod_mensajeros_get_set {
         this.men_telefono = men_telefono;
         this.men_email = men_email;
     }
+
+    public Mod_mensajeros_get_set(String men_cedula, String men_nombre, String men_direccion, String men_barrio, String men_descripcion, String men_telefono, String men_email, String men_usu_id) {
+        this.men_cedula = men_cedula;
+        this.men_nombre = men_nombre;
+        this.men_direccion = men_direccion;
+        this.men_barrio = men_barrio;
+        this.men_descripcion = men_descripcion;
+        this.men_telefono = men_telefono;
+        this.men_email = men_email;
+        this.men_usu_id = men_usu_id;
+    }
+
+    public String getMen_usu_id() {
+        return men_usu_id;
+    }
+
+    public void setMen_usu_id(String men_usu_id) {
+        this.men_usu_id = men_usu_id;
+    }
+
+   
+    
 
     public int getMen_id() {
         return men_id;
@@ -90,6 +113,9 @@ public class Mod_mensajeros_get_set {
     public void setMen_email(String men_email) {
         this.men_email = men_email;
     }
+    
+
+
     
     
 }

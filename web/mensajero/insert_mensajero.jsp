@@ -4,6 +4,9 @@
     Author     : usuario
 --%>
 
+<%@page import="modelo.Mod_usuarios"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="modelo.Mod_usuarios_get_set"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,6 +20,7 @@
         String nombre_usu;
         HttpSession nom_usuario = request.getSession(false);
         nombre_usu = (String)nom_usuario.getAttribute("nom_user");
+       
      %>
     </head>
     <body>
@@ -52,48 +56,73 @@
       
 
 </nav>
+        <%
+          
+            
+         ArrayList<Mod_usuarios_get_set> listaMensajero = new ArrayList<>();
+         Mod_usuarios_get_set datosMensajero = new Mod_usuarios_get_set();
+         Mod_usuarios consultaUno = new Mod_usuarios();
+         listaMensajero = consultaUno.consultarUnUsuario(nombre_usu);
+         for (int i = 0 ; i<listaMensajero.size();i++)
+         {
+             datosMensajero = listaMensajero.get(i);
+             %>
+           
+             
+              
+        
+        
         <hr>
         <div class="container">
              <h3> Registrar Mensajero</h3>
-        <form>
-           <div class="form-group">
-    <label for="">Nombre de usuario</label>
-    <input class="form-control" type="text" placeholder="<%=nombre_usu%>" readonly>
-    </div>
+             <form action="../con_mensajeros" method="POST">
+    
+      <div class="form-group">
+    <label for="">id Mensajero</label>
+    <input class="form-control" type="hidden" name="men_usu_id" value="<%=datosMensajero.getUsu_id()%>">
+    </div>             
             
-           
+    <div class="form-group">
+    <label for="">Nombre de usuario</label>
+    <input class="form-control" type="text" placeholder="<%=datosMensajero.getUsu_nombre()%>" readonly>
+  
+    </div>
+            <%
+            }
+        %>
+        
             
   <div class="form-group">
     <label for="">Nombre y Apellido</label>
-    <input type="text" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="Antonio Parra" >
+    <input type="text" name="men_nombre" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="Antonio Parra" >
   </div>
   <div class="form-group">
     <label for="">Cedula</label>
-    <input type="number" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="cc." >
+    <input type="number"  name="men_cedula" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="cc." >
   </div>
   <div class="form-group">
     <label for="">Direccion</label>
-    <input type="text" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="Calle 5 # 21 -30" >
+    <input type="text" name="men_direccion" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="Calle 5 # 21 -30" >
   </div>
   <div class="form-group">
     <label for="">Barrio</label>
-    <input type="text" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="La pradera" >
+    <input type="text" name="men_barrio" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="La pradera" >
   </div>
   <div class="form-group">
     <label for="">Descripcion</label>
-    <input type="text" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="torre 9 apt 404" >
+    <input type="text" name="men_descripcion" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="torre 9 apt 404" >
   </div>
   <div class="form-group">
     <label for="">Celular</label>
-    <input type="text" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="3202363690" >
+    <input type="text" name="men_celular" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="3202363690" >
   </div>
   <div class="form-group">
     <label for="">Email</label>
-    <input type="text" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="mensajero@gmail.com" >
+    <input type="text" name="men_email" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="mensajero@gmail.com" >
   </div>
             
   
-  <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" name="registrar_mensajero" class="btn btn-primary">Submit</button>
 </form>
         </div>
     </body>
