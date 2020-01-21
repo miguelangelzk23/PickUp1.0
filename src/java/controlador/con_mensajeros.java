@@ -109,16 +109,38 @@ public class con_mensajeros extends HttpServlet {
       protected void editar_mensajero(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
-        if(request.getParameter("registrar_mensajero") != null)
-        {
+       
             int men_id;
-            boolean dat;
-            
-            men_id = Integer.parseInt(request.getParameter("men_id"));
+           String usu_foto,usu_estado,men_nombre,men_direccion,men_barrio,men_descripcion,men_telefono,men_email;
+        boolean dat;
+        
+        usu_foto = request.getParameter("usu_foto");
+        usu_estado = request.getParameter("usu_estado");
+        men_nombre = request.getParameter("men_nombre");
+        men_direccion = request.getParameter("men_direccion");
+        men_barrio = request.getParameter("men_barrio");
+        men_descripcion = request.getParameter("men_descripcion");
+        men_telefono = request.getParameter("men_celular");
+        men_email = request.getParameter("men_email");
+        men_id = Integer.parseInt(request.getParameter("men_id"));
+        
+        Mod_show_mensajero_get_set datos_mensajero = new Mod_show_mensajero_get_set(men_id, usu_estado, usu_foto, men_nombre, men_direccion, men_barrio, men_descripcion, men_telefono, men_email);
+        Mod_mensajeros update_men = new Mod_mensajeros();
+        dat = update_men.actualizarMensajero(datos_mensajero);
+        
+        if(dat)
+        {
+            JOptionPane.showMessageDialog(null, "mensajero actualizado correctamente");
+            response.sendRedirect("mensajero/vi_index_mensajeros.jsp");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "mensajero no se actualizo");
+            response.sendRedirect("mensajero/vi_index_mensajeros.jsp");
+        }
             
           
-        }
+        
       }
 
     /**

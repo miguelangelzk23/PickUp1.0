@@ -24,6 +24,20 @@ public class Mod_show_mensajero_get_set {
         this.men_id = men_id;
     }
 
+    public Mod_show_mensajero_get_set(int men_id, String usu_estado, String usu_foto, String men_nombre, String men_direccion, String men_barrio, String men_descripcion, String men_telefono, String men_email) {
+        this.men_id = men_id;
+        this.usu_estado = usu_estado;
+        this.usu_foto = usu_foto;
+        this.men_nombre = men_nombre;
+        this.men_direccion = men_direccion;
+        this.men_barrio = men_barrio;
+        this.men_descripcion = men_descripcion;
+        this.men_telefono = men_telefono;
+        this.men_email = men_email;
+    }
+
+  
+
     public Mod_show_mensajero_get_set(int men_id, String usu_nombre, String usu_rol, String usu_estado, String usu_foto, String men_nombre, String men_cedula, String men_direccion, String men_barrio, String men_descripcion, String men_telefono, String men_email) {
         this.men_id = men_id;
         this.usu_nombre = usu_nombre;

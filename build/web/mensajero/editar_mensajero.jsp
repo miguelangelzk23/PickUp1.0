@@ -71,7 +71,8 @@
     
       <div class="form-group">
     <label for="">id Mensajero</label>
-    <input class="form-control" type="text" name="men_usu_id" value="<%=datosUnMensajero.getMen_id()%>" readonly>
+    <input class="form-control" type="text" name="men_id_v" value="<%=datosUnMensajero.getMen_id()%>" readonly>
+    <input type="hidden"  name="men_id"value="<%=datosUnMensajero.getMen_id()%>">
     </div>             
             
     <div class="form-group">
@@ -86,12 +87,17 @@
     
     <div class="form-group">
     <label for="">Estado</label>
-    <input class="form-control" type="text" placeholder="<%=datosUnMensajero.getUsu_estado()%>" readonly>
+   
+    <select class="form-control" name="usu_estado" >
+        <option value="<%=datosUnMensajero.getUsu_estado()%>"><%=datosUnMensajero.getUsu_estado()%></option>
+        <option value="inactivo">Inactivo</option>
+        <option value="inactivo">Activo</option>
+    </select>
     </div>
            
      <div class="form-group">
     <label for="">Foto</label>
-    <input type="text" name="men_nombre" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" value="<%=datosUnMensajero.getUsu_foto()%>" >
+    <input type="text" name="usu_foto" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" value="<%=datosUnMensajero.getUsu_foto()%>" >
   </div>       
     
     
@@ -101,7 +107,7 @@
   </div>
   <div class="form-group">
     <label for="">Cedula</label>
-    <input type="text"  name="men_cedula" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" value="<%=datosUnMensajero.getMen_cedula()%>" >
+    <input type="text"  name="men_cedula" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" value="<%=datosUnMensajero.getMen_cedula()%>" readonly >
   </div>
   <div class="form-group">
     <label for="">Direccion</label>
@@ -123,13 +129,20 @@
     <label for="">Email</label>
     <input type="text" name="men_email" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" value="<%=datosUnMensajero.getMen_email()%>" >
   </div>
-  <%
+  
+  
+    <button type="submit" name="editar_mensajero" class="btn btn-primary">Guardar Cambios</button>
+    
+    <form action="../con_mensajeros">
+        <button  class="btn btn-danger" type="submit" >Eliminar Menjaser</button>
+    </form>
+    
+    </form>
+           <%
             }
 %>
-  
-    <button type="submit" name="registrar_mensajero" class="btn btn-primary">Submit</button>
-</form>
-        </div>
-          
+     </div>
+   
+   
     </body>
 </html>

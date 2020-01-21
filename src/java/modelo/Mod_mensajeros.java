@@ -95,4 +95,37 @@ public class Mod_mensajeros {
         }
         return reg;
     }
+    
+    public boolean actualizarMensajero (Mod_show_mensajero_get_set mensj)
+    {
+        boolean reg = false;
+        int dat = 0;
+        try {
+            ps = cnn.prepareStatement("update tb_usuario inner join tb_mensajero on (men_usu_id = usu_id) set"
+                    + " usu_estado = '"+mensj.getUsu_estado()+"',usu_foto = '"+mensj.getUsu_foto()+"',men_nombre = '"+mensj.getMen_nombre()+"',"
+                            + "men_direccion = '"+mensj.getMen_direccion()+"',men_barrio = '"+mensj.getMen_barrio()+"',"
+                                    + "men_descripcion = '"+mensj.getMen_descripcion()+"',men_telefono = '"+mensj.getMen_telefono()+"',"
+                                            + "men_email = '"+mensj.getMen_email()+"' where men_id = '"+mensj.getMen_id()+"'");
+           dat = ps.executeUpdate();
+           if(dat > 0)
+           {
+               reg = true;
+                JOptionPane.showMessageDialog(null, "actualizando mensajero");
+                
+           }
+           else
+           {
+               reg = false;
+               JOptionPane.showMessageDialog(null, "no se esta actualizando nada ");
+           }
+            
+           
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "error al actualizar Mensajero" + e);
+            
+        }
+        
+        return reg;
+    }
 }
