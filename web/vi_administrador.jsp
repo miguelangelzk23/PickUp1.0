@@ -71,38 +71,39 @@
         </button>
       </div>
       <div class="modal-body">
-                <form>
+          <form action="con_usuarios" method="POST">
                     <div class="form-group">
                      <label for="">Nombre de Usuario</label>
-                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" ej: miguelzk23">
+                     <input type="text" name="usu_nombre" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" ej: miguelzk23">
                      </div>
                     
                     <div class="form-group">
                      <label for="">Contraseña</label>
-                     <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="******">
+                     <input type="password" name="usu_password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="******">
                      </div>
                     
                     <div class="form-group">
                      <label for="exampleInputEmail1">Confirmar contraseña</label>
-                     <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="******">
+                     <input type="password" name="usu_confirmar" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="******">
                      </div>
                     
                     <div class="form-group">
-                     <label for="exampleInputEmail1">Rol</label>
-                   <select id="inputState" class="form-control">
-                     <option selected>Mensajero</option>
-                     <option>Proveedor</option>
-                     <option>Administrador</option>
+                     <label for="">Rol</label>
+                     <select id="" class="form-control" name="usu_rol">
+                         <option value="Mensajero">Mensajero</option>
+                         <option value="Proveedor">Proveedor</option>
+                         <option value="Administrador">Administrador</option>
                     </select>
+                     <input type="hidden" name="usu_estado" value="Activo">
                      </div>
                     
                      <div class="form-group">
                      <label for="exampleInputPassword1">Foto</label>
-                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="foto">
+                     <input type="text" name="usu_foto" class="form-control" id="exampleInputPassword1" placeholder="foto">
                     </div>
                     
                     
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" name="registrar_usuario" class="btn btn-primary">Guardar</button>
 </form>
       </div>
       <div class="modal-footer">

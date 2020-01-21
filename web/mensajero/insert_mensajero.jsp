@@ -13,6 +13,11 @@
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">  
          <link rel="stylesheet" href="../css/style.css">
         <title>insertar menjasero</title>
+     <%
+        String nombre_usu;
+        HttpSession nom_usuario = request.getSession(false);
+        nombre_usu = (String)nom_usuario.getAttribute("nom_user");
+     %>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light " id="nav_user">
@@ -51,6 +56,13 @@
         <div class="container">
              <h3> Registrar Mensajero</h3>
         <form>
+           <div class="form-group">
+    <label for="">Nombre de usuario</label>
+    <input class="form-control" type="text" placeholder="<%=nombre_usu%>" readonly>
+    </div>
+            
+           
+            
   <div class="form-group">
     <label for="">Nombre y Apellido</label>
     <input type="text" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" placeholder="Antonio Parra" >
