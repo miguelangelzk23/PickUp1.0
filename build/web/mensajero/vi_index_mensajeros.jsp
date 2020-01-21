@@ -73,6 +73,7 @@
                 <th>Descripcion</th>
                 <th>Telefono</th>
                 <th>Email</th>
+                <th>Confi</th>
                 
             </tr>
             
@@ -96,6 +97,10 @@
                     <td><%=datos_mensajeros.getMen_descripcion()%></td>
                     <td><%=datos_mensajeros.getMen_telefono()%></td>
                     <td><%=datos_mensajeros.getMen_email()%></td>
+                <form action="editar_mensajero.jsp">
+                    <input type="hidden" name="men_id" value="<%=datos_mensajeros.getMen_id()%>">
+                    <td> <button type="submit" name="editar_mensajero" style="background-color: #ffffff"> <i class="fas fa-cog"></i></button></td>
+                </form>
                     
                 </tr>
                 

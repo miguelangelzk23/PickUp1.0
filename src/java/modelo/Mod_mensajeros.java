@@ -39,24 +39,26 @@ public class Mod_mensajeros {
         return lista_mensajeros;
     }
     
-    public ArrayList<Mod_mensajeros_get_set> consultar_un_Mensajero ( String men_nombre)
+    public ArrayList<Mod_show_mensajero_get_set> consultar_un_Mensajero ( int men_id)
     {
-        ArrayList<Mod_mensajeros_get_set> lista_mensajeros = new ArrayList<>();
+        ArrayList<Mod_show_mensajero_get_set> lista_mensajeros = new ArrayList<>();
         try {
-            ps = cnn.prepareStatement("select men_nombre , men_id, men_usu_id from tb_mensajero where men_nombre = '"+men_nombre+"' ");
+            ps = cnn.prepareStatement("select men_id,usu_nombre,usu_rol,usu_estado,usu_foto,men_nombre,men_cedula,"
+                    + "men_direccion,men_barrio,men_descripcion,men_telefono,men_email from tb_usuario inner join"
+                    + " tb_mensajero on (usu_id = men_usu_id) where men_id = '"+men_id+"'");
             rs = ps.executeQuery();
             while(rs.next())
             {
-                Mod_mensajeros_get_set datos_mensajero = new Mod_mensajeros_get_set(rs.getInt(1),
-                  rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),
-                      rs.getString(7),rs.getString(8));
+                Mod_show_mensajero_get_set datos_mensajero = new Mod_show_mensajero_get_set(rs.getInt(1),
+                        rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5),rs.getString(6),
+                        rs.getString(7),rs.getString(8),rs.getString(9), rs.getString(10),rs.getString(11),rs.getString(12));
                 
                 lista_mensajeros.add(datos_mensajero);
                 
             }
         } catch (Exception e) 
         {
-            JOptionPane.showMessageDialog(null, "Error al consultar mensajero");
+            JOptionPane.showMessageDialog(null, "Error al consultar mensajero" + e);
         }
         
         return lista_mensajeros;

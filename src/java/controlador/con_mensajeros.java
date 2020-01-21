@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 import modelo.Mod_mensajeros;
 import modelo.Mod_mensajeros_get_set;
+import modelo.Mod_show_mensajero_get_set;
 
 /**
  *
@@ -66,6 +67,10 @@ public class con_mensajeros extends HttpServlet {
         {
             insertarMensajero(request, response);
         }
+        if(request.getParameter("editar_mensajero") != null)
+        {
+            editar_mensajero(request, response);
+        }
         
     }
     
@@ -101,6 +106,20 @@ public class con_mensajeros extends HttpServlet {
         
         
     }
+      protected void editar_mensajero(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+        
+        if(request.getParameter("registrar_mensajero") != null)
+        {
+            int men_id;
+            boolean dat;
+            
+            men_id = Integer.parseInt(request.getParameter("men_id"));
+            
+          
+        }
+      }
 
     /**
      * Returns a short description of the servlet.
