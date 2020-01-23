@@ -16,6 +16,10 @@ public class Mod_tipo_proveedor_get_set {
         this.tipo_descripcion = tipo_descripcion;
     }
 
+    public Mod_tipo_proveedor_get_set(String tipo_nombre) {
+        this.tipo_nombre = tipo_nombre;
+    }
+
     public int getTipo_codigo() {
         return tipo_codigo;
     }

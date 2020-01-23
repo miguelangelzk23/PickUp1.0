@@ -93,7 +93,7 @@ public final class vi_005fadministrador_jsp extends org.apache.jasper.runtime.Ht
       out.write("         + Nuevo \n");
       out.write("         </button>\n");
       out.write("        <a href=\"mensajero/vi_index_mensajeros.jsp\"> <button>Mensajeros</button> </a>\n");
-      out.write("        <a> <button>Restaurantes</button> </a>\n");
+      out.write("        <a href=\"proveedor/index_proveedor.jsp\"><button>Restaurantes</button> </a>\n");
       out.write("        <a> <button>Usuarios</button> </a>\n");
       out.write("        </div>\n");
       out.write("        \n");

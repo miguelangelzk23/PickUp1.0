@@ -38,6 +38,33 @@ public class Mod_proveedor {
         return  lista_proveedor;
     }
     
+    public ArrayList<Mod_show_provedor_get_set> consultarUnProveedor ( int prove_nit)
+    {
+        ArrayList<Mod_show_provedor_get_set> lista_Unproveedor = new ArrayList<>();
+        try {
+            ps = cnn.prepareStatement("select  usu_nombre,usu_rol,usu_estado,usu_foto,prove_nit,"
+                    + "prove_nombre,prove_telefono,prove_email,prove_horario,prove_direccion,"
+                    + "prove_tipo_codigo from tb_usuario inner join tb_proveedor on (usu_id = prove_usu_id)"
+                    + "where prove_nit = '"+prove_nit+"'");
+            
+            rs = ps.executeQuery();
+            while(rs.next())
+            {
+              Mod_show_provedor_get_set datos_proveedor = new Mod_show_provedor_get_set
+                (rs.getString(1), rs.getString(2),rs.getString(3),rs.getString(4),
+                 rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9), 
+                 rs.getString(10),  rs.getInt(11));
+                
+                lista_Unproveedor.add(datos_proveedor);
+            }
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "Error al consultar proveedor");
+        }
+        
+        return  lista_Unproveedor;
+    }
+    
     public boolean insertarProveedor (Mod_proveedor_get_set provegs)
     {
         boolean reg = false;
