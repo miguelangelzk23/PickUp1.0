@@ -54,7 +54,7 @@
          + Nuevo 
          </button>
         <a href="mensajero/vi_index_mensajeros.jsp"> <button>Mensajeros</button> </a>
-        <a> <button>Restaurantes</button> </a>
+        <a href="proveedor/index_proveedor.jsp"><button>Restaurantes</button> </a>
         <a> <button>Usuarios</button> </a>
         </div>
         

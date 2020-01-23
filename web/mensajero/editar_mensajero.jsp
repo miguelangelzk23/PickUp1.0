@@ -15,7 +15,7 @@
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">  
          <link rel="stylesheet" href="../css/style.css">
-        <title>JSP Page</title>
+        <title>Actuaizar Mensajero</title>
     </head>
     <body>
           <nav class="navbar navbar-expand-lg navbar-light " id="nav_user">
@@ -66,26 +66,29 @@
                 %>
                 
                   <div class="container">
-             <h3> editar Mensajero</h3>
+             <h3> Actualizar Mensajero</h3>
              <form action="../con_mensajeros" method="POST">
     
-      <div class="form-group">
+          <div class="form-row">
+      <div class="form-group col-md-6" >
     <label for="">id Mensajero</label>
     <input class="form-control" type="text" name="men_id_v" value="<%=datosUnMensajero.getMen_id()%>" readonly>
     <input type="hidden"  name="men_id"value="<%=datosUnMensajero.getMen_id()%>">
     </div>             
             
-    <div class="form-group">
+    <div class="form-group col-md-6" >
     <label for="">Nombre de usuario</label>
     <input class="form-control" type="text" placeholder="<%=datosUnMensajero.getUsu_nombre()%>" readonly>
     </div>
+      </div>
     
-    <div class="form-group">
+    <div class="form-row">
+    <div class="form-group col-md-6">
     <label for="">Rol</label>
     <input class="form-control" type="text" placeholder="<%=datosUnMensajero.getUsu_rol()%>" readonly>
     </div>
     
-    <div class="form-group">
+    <div class="form-group col-md-6">
     <label for="">Estado</label>
    
     <select class="form-control" name="usu_estado" >
@@ -94,48 +97,59 @@
         <option value="inactivo">Activo</option>
     </select>
     </div>
-           
+    </div>       
+        
      <div class="form-group">
     <label for="">Foto</label>
     <input type="text" name="usu_foto" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" value="<%=datosUnMensajero.getUsu_foto()%>" >
   </div>       
     
-    
-  <div class="form-group">
+  <div class="form-row">
+  <div class="form-group col-md-6">
     <label for="">Nombre y Apellido</label>
     <input type="text" name="men_nombre" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" value="<%=datosUnMensajero.getMen_nombre()%>" >
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-6">
     <label for="">Cedula</label>
     <input type="text"  name="men_cedula" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" value="<%=datosUnMensajero.getMen_cedula()%>" readonly >
   </div>
-  <div class="form-group">
+  </div>
+  
+  <div class="form-row">
+  <div class="form-group col-md-6">
     <label for="">Direccion</label>
     <input type="text" name="men_direccion" class="form-control" id="insert_mensajero" aria-describedby="emailHelp"value="<%=datosUnMensajero.getMen_direccion()%>" >
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-6">
     <label for="">Barrio</label>
     <input type="text" name="men_barrio" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" value="<%=datosUnMensajero.getMen_barrio()%>">
+  </div>
   </div>
   <div class="form-group">
     <label for="">Descripcion</label>
     <input type="text" name="men_descripcion" class="form-control" id="insert_mensajero" aria-describedby="emailHelp"value="<%=datosUnMensajero.getMen_descripcion()%>" >
   </div>
-  <div class="form-group">
+  
+  <div class="form-row">
+      
+  
+  <div class="form-group col-md-6">
     <label for="">Celular</label>
     <input type="text" name="men_celular" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" value="<%=datosUnMensajero.getMen_telefono()%>" >
   </div>
-  <div class="form-group">
+  <div class="form-group col-md-6">
     <label for="">Email</label>
     <input type="text" name="men_email" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" value="<%=datosUnMensajero.getMen_email()%>" >
   </div>
+  </div>
   
-  
-    <button type="submit" name="editar_mensajero" class="btn btn-primary">Guardar Cambios</button>
+  <div class="row">
+    <button type="submit" name="editar_mensajero" class="btn btn-primary col-md-6">Guardar Cambios</button>
     
     <form action="../con_mensajeros">
-        <button  class="btn btn-danger" type="submit" >Eliminar Menjaser</button>
+        <button  class="btn btn-danger col-md-6" type="submit" >Eliminar Menjaser</button>
     </form>
+    </div>
     
     </form>
            <%
