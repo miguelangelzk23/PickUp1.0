@@ -40,11 +40,11 @@ public class Mod_tipo_proveedor {
     {
         ArrayList<Mod_tipo_proveedor_get_set> lista_un_Tipos = new ArrayList<>();
         try {
-            ps = cnn.prepareStatement("select tipo_nombre from tb_tipo_proveedor where tipo_codigo = '"+codigo_prove+"'");
+            ps = cnn.prepareStatement("select * from tb_tipo_proveedor where tipo_codigo = '"+codigo_prove+"'");
             rs = ps.executeQuery();
             while(rs.next())
             {
-                Mod_tipo_proveedor_get_set datosun_tipos = new Mod_tipo_proveedor_get_set(rs.getString(1));
+                Mod_tipo_proveedor_get_set datosun_tipos = new Mod_tipo_proveedor_get_set(rs.getInt(1),rs.getString(2),rs.getString(3));
                 lista_un_Tipos.add(datosun_tipos);
             }
             

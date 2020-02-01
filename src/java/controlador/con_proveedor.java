@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 import modelo.Mod_proveedor;
 import modelo.Mod_proveedor_get_set;
+import modelo.Mod_show_provedor_get_set;
 import modelo.Mod_tipo_proveedor;
 import modelo.Mod_tipo_proveedor_get_set;
 
@@ -72,6 +73,11 @@ public class con_proveedor extends HttpServlet {
         {
             insertar_proveedor(request, response);   
         }
+         if(request.getParameter("editar_proveedor") != null)
+        {
+            actualizar_proveedor(request, response);
+            JOptionPane.showMessageDialog(null, "esta llegando");
+        }
         
         
     }
@@ -107,6 +113,46 @@ public class con_proveedor extends HttpServlet {
         else
         {
             JOptionPane.showMessageDialog(null, "No se registro el usuario");
+             response.sendRedirect("proveedor/index_proveedor.jsp");
+        }
+        
+    }
+      
+      
+      protected void actualizar_proveedor(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+        
+        String prove_nit,prove_nombre,prove_telefono,prove_email,prove_horario,prove_direccion,usu_estado,usu_foto;
+        int prove_usu_id,prove_tipo_codigo;
+        boolean dat;
+        
+        usu_foto = request.getParameter("usu_foto");
+        usu_estado = request.getParameter("usu_estado");
+        prove_nit = request.getParameter("prove_nit");
+        prove_nombre = request.getParameter("prove_nombre");
+        prove_telefono = request.getParameter("prove_telefono");
+        prove_email = request.getParameter("prove_email");
+        prove_horario = request.getParameter("prove_horario");
+        prove_direccion = request.getParameter("prove_direccion");
+       // prove_usu_id = Integer.parseInt(request.getParameter("prove_usu_id"));
+        prove_tipo_codigo =Integer.parseInt(request.getParameter("prove_tipo_codigo"));
+        
+      JOptionPane.showMessageDialog(null, "llegando al controlador");
+        
+            Mod_show_provedor_get_set datos_proveedor = new Mod_show_provedor_get_set(usu_estado, usu_foto, prove_nit, prove_nombre, prove_telefono, prove_email, prove_horario, prove_direccion, prove_tipo_codigo);
+            Mod_proveedor update_prove = new Mod_proveedor();
+            dat = update_prove.actualizarProveedor(datos_proveedor);
+            
+          
+        if(dat)
+        {
+            JOptionPane.showMessageDialog(null, "Proveedor Actualizado");
+            response.sendRedirect("proveedor/index_proveedor.jsp");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "No se actualizo el proveedor");
              response.sendRedirect("proveedor/index_proveedor.jsp");
         }
         

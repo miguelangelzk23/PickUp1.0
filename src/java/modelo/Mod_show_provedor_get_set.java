@@ -35,6 +35,19 @@ public class Mod_show_provedor_get_set {
         this.prove_tipo_codigo = prove_tipo_codigo;
     }
 
+    public Mod_show_provedor_get_set(String usu_estado, String usu_foto, String prove_nit, String prove_nombre, String prove_telefono, String prove_email, String prove_horario, String prove_diceccion, int prove_tipo_codigo) {
+        this.usu_estado = usu_estado;
+        this.usu_foto = usu_foto;
+        this.prove_nit = prove_nit;
+        this.prove_nombre = prove_nombre;
+        this.prove_telefono = prove_telefono;
+        this.prove_email = prove_email;
+        this.prove_horario = prove_horario;
+        this.prove_diceccion = prove_diceccion;
+        this.prove_tipo_codigo = prove_tipo_codigo;
+    }
+
+    
     public String getUsu_nombre() {
         return usu_nombre;
     }

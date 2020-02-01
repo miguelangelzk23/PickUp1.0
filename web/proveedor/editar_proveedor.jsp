@@ -76,6 +76,7 @@
     <label for="">Nit Proveedor</label>
     <input class="form-control" type="text" name="prove_nit" value="<%=datosUnProveedor.getProve_nit()%>" readonly>
     <input type="hidden"  name="prove_nit"value="<%=datosUnProveedor.getProve_nit()%>">
+    
     </div>             
             
     <div class="form-group col-md-6" >
@@ -84,22 +85,7 @@
     </div>
       </div>
     
-     <%
-          int dat = datosUnProveedor.getProve_tipo_codigo();
-         ArrayList<Mod_tipo_proveedor_get_set> listauTipoProvedor = new ArrayList<>();
-           Mod_tipo_proveedor_get_set datosuTipo = new Mod_tipo_proveedor_get_set();
-           Mod_tipo_proveedor consultauTipo = new  Mod_tipo_proveedor();
-           listauTipoProvedor  = consultauTipo.consultar_un_TipoProveedor(dat);
-           
-        for (int k = 0; k <listauTipoProvedor.size();k++ )
-               {
-               %>
-               
-               <option><%=datosuTipo.getTipo_nombre()%></option>
-               <%
-               }
-%>
-    
+
     <div class="form-row">
     <div class="form-group col-md-6">
     <label for="">Rol</label>
@@ -109,7 +95,25 @@
     <div class="form-group col-md-6">
     <label for="">categoria</label>
     
+         <%
+          int dat = datosUnProveedor.getProve_tipo_codigo();
+         ArrayList<Mod_tipo_proveedor_get_set> listauTipoProvedor = new ArrayList<>();
+           Mod_tipo_proveedor_get_set datosuTipo = new Mod_tipo_proveedor_get_set();
+           Mod_tipo_proveedor consultauTipo = new  Mod_tipo_proveedor();
+           listauTipoProvedor  = consultauTipo.consultar_un_TipoProveedor(dat);
+           
+        for (int k = 0; k <listauTipoProvedor.size();k++ )
+               {
+                   datosuTipo = listauTipoProvedor.get(k);
+               %>
+    
+               
     <select class="form-control" name="prove_tipo_codigo">
+        
+                <option value="<%=datosuTipo.getTipo_codigo()%>"><%=datosuTipo.getTipo_nombre()%></option>
+                 <%
+               }
+%>
          <%
             
            ArrayList<Mod_tipo_proveedor_get_set> listaTipoProvedor = new ArrayList<>();
@@ -120,6 +124,9 @@
            {
                datosTipo = listaTipoProvedor.get(j);
                %>
+               
+       
+               
            
         <option value="<%=datosTipo.getTipo_codigo()%>"><%=datosTipo.getTipo_nombre()%></option>
           <%    
@@ -143,7 +150,7 @@
   </div>
   <div class="form-group col-md-6">
     <label for="">Telefono</label>
-    <input type="text"  name="prove_telefono" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" value="<%=datosUnProveedor.getProve_telefono()%>" readonly >
+    <input type="text"  name="prove_telefono" class="form-control" id="insert_mensajero" aria-describedby="emailHelp" value="<%=datosUnProveedor.getProve_telefono()%>" >
   </div>
   </div>
   
@@ -177,10 +184,10 @@
   </div>
   
   <div class="row">
-    <button type="submit" name="editar_mensajero" class="btn btn-primary col-md-6">Guardar Cambios</button>
+    <button type="submit" name="editar_proveedor" class="btn btn-primary col-md-6">Guardar Cambios</button>
     
-    <form action="../con_mensajeros">
-        <button  class="btn btn-danger col-md-6" type="submit" >Eliminar Menjaser</button>
+    <form action="../con_proveedor">
+        <button  class="btn btn-danger col-md-6" type="submit" >Eliminar Proveedor</button>
     </form>
     </div>
     
@@ -190,10 +197,5 @@
             %>
      </div>
    
-             <select>
-    
-    </select>
-        
-</nav>
     </body>
 </html>

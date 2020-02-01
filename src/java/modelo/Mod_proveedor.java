@@ -99,4 +99,35 @@ public class Mod_proveedor {
         
         return reg;
     }
+    
+    public boolean actualizarProveedor(Mod_show_provedor_get_set provegs)
+    {
+        boolean reg = false;
+        int dat = 0;
+        try {
+            ps = cnn.prepareStatement("update tb_usuario inner join tb_proveedor on (prove_usu_id = usu_id) set "
+                    + "usu_estado = '"+provegs.getUsu_estado()+"',usu_foto = '"+provegs.getUsu_foto()+"',"
+                    + "prove_nombre = '"+provegs.getProve_nombre()+"',prove_telefono = '"+provegs.getProve_telefono()+"',"
+                    + "prove_email = '"+provegs.getProve_email()+"',prove_horario = '"+provegs.getProve_horario()+"',"
+                    + "prove_direccion = '"+provegs.getProve_diceccion()+"',prove_tipo_codigo = '"+provegs.getProve_tipo_codigo()+"' "
+                    + "where prove_nit = '"+provegs.getProve_nit()+"'");
+            dat = ps.executeUpdate();
+            if(dat > 0)
+            {
+                reg = true;
+                JOptionPane.showMessageDialog(null, "provvedor actualizado");
+            }
+            else
+            {
+                reg = false;
+                JOptionPane.showMessageDialog(null, "Porveedor no se actualizo modelo");
+            }
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "no se actualizo" + e);
+        }
+        
+        return reg;
+    }
+    
 }
